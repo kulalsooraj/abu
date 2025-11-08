@@ -6,9 +6,8 @@ spec:
   selector:
     app: vprormq
   ports:
-  - port: 5672
-    targetPort: vprormq-port
-    protocol: TCP
-    selector:
-      app: vprormq
+    - name: rabbitmq
+      port: 5672
+      targetPort: vprormq-port
+      protocol: TCP
   type: ClusterIP
