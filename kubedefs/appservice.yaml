@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: vproapp-service
 spec:
+  selector:                # ✅ belongs directly under spec
+    app: vproapp
   ports:
-  - port: 8080
-    targetPort: 8080
-    protocol: TCP
-    selector:
-      app: vproapp
-  type: ClusterIP
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP           # or NodePort / LoadBalancer as needed
